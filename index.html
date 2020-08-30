@@ -14,14 +14,62 @@
             <nav>
                 <!-- Logo -->
                 <h3 class="logo">EOC</h3>
+
+                <div class="nav-open">
+                    <div class="menu-main">
+                        <h3>Main</h3>
+                        <p>Main Page</p>
+                    </div>
+                    <div class="menu-classes">
+                        <h3>Classes</h3>
+                        <p>Our Classes</p>
+                    </div>
+                    <div class="menu-events">
+                        <h3>Events</h3>
+                        <p>Our Events</p>
+                    </div>
+                    <div class="menu-members">
+                        <h3>Members</h3>
+                        <p>Our Members</p>
+                    </div>
+                    <div class="menu-about">
+                        <h3>About Us</h3>
+                        <p>About</p>
+                    </div>
+                    <div class="menu-favorites">
+                        <h3>Favorites</h3>
+                        <p>Favorites</p>
+                    </div>
+                    <div class="menu-social">
+                        <h3>Social</h3>
+                        <div class="social-links">
+                            <img src="./img/svg/Facebook.svg" alt=facebook">
+                            <img src="./img/svg/Twitter.svg" alt="twitter">
+                            <img src="./img/svg/Instagram.svg" alt="instagram">
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Menu Icon -->
-                <div class="container" onclick="myFunction(this)">
+                <div class="menu">
                     <div class="menu-bar1"></div>
                     <div class="menu-bar2"></div>
                     <div class="menu-bar3"></div>
                 </div>
             </nav>
             <main>
+                <section class="page mainpage">
+                    <div class="details">
+                        <h1>Main</h1>
+                        <h2>Main Page</h2>
+                        <h3>Date</h3>
+                    </div>
+                    <div class="hero">
+                        <img class="model-left" src="./img/Kira1-edt.jpg" alt="model">
+                        <img class="model-right" src="./img/Kira1-edt.jpg" alt="model">
+                    </div>
+                </section>
+
                 <section class="page classes">
                     <div class="details">
                         <h1>Classes</h1>
@@ -29,8 +77,10 @@
                         <h3>Date</h3>
                     </div>
                     <div class="hero">
-                        <img class="model-left" src="./img/Kira1-edt.jpg" alt="model">
-                        <img class="model-right" src="./img/Kira1-edt.jpg" alt="model">
+                        <a href="./classes.html">
+                            <img class="model-left" src="./img/Powell-Matilda.jpg" alt="model">
+                            <img class="model-right" src="./img/Powell-Matilda.jpg" alt="model">
+                        </a>
                     </div>
                 </section>
 
@@ -41,8 +91,10 @@
                         <h3>Date</h3>
                     </div>
                     <div class="hero">
-                        <img class="model-left" src="./img/MickWater.jpg" alt="model">
-                        <img class="model-right" src="./img/MickWater.jpg" alt="model">
+                        <a href="./events.html">
+                            <img class="model-left" src="./img/MickWater.jpg" alt="model">
+                            <img class="model-right" src="./img/MickWater.jpg" alt="model">
+                        </a>
                     </div>
                 </section>
                 <section class="page members">
@@ -52,30 +104,36 @@
                         <h3>Date</h3>
                     </div>
                     <div class="hero">
-                        <img class="model-left" src="./img/browndogEDT.jpg" alt="model">
-                        <img class="model-right" src="./img/browndogEDT.jpg" alt="model">
+                        <a href="./members.html">
+                            <img class="model-left" src="./img/browndogEDT.jpg" alt="model">
+                            <img class="model-right" src="./img/browndogEDT.jpg" alt="model">
+                        </a>
                     </div>
                 </section>
-                <section class="page about-us">
+                <section class="page about">
                     <div class="details">
                         <h1>About Us</h1>
                         <h2>Listings</h2>
                         <h3>Date</h3>
                     </div>
                     <div class="hero">
-                        <img class="model-left" src="./img/alspaugh-Trevor.jpg" alt="model">
-                        <img class="model-right" src="./img/alspaugh-Trevor.jpg" alt="model">
+                        <a href="./about.html">
+                            <img class="model-left" src="./img/alspaugh-Trevor.jpg" alt="model">
+                            <img class="model-right" src="./img/alspaugh-Trevor.jpg" alt="model">
+                        </a>
                     </div>
                 </section>
                 <section class="page favorites">
                     <div class="details">
                         <h1>Favorites</h1>
                         <h2>Favorite Listings</h2>
-                            <h3>Date</h3>
+                        <h3>Date</h3>
                     </div>
                     <div class="hero">
-                        <img class="model-left" src="./img/Mueller-Josie.jpg" alt="model">
-                        <img class="model-right" src="./img/Mueller-Josie.jpg" alt="model">
+                        <a href="./favorites.html">
+                            <img class="model-left" src="./img/Mueller-Josie.jpg" alt="model">
+                            <img class="model-right" src="./img/Mueller-Josie.jpg" alt="model">
+                        </a>
                     </div>
                 </section>
                 <div class="pages">
@@ -88,14 +146,35 @@
                     </div>
                     <div class="page-2">
                         <h3>02</h3>
-                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
+                        <svg class="slide" width="12" height="12" viewBox="0 0 12 12" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <circle cx="6" cy="6" r="6" fill="white" />
                         </svg>
                     </div>
                     <div class="page-3">
                         <h3>03</h3>
-                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
+                        <svg class="slide" width="12" height="12" viewBox="0 0 12 12" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="6" cy="6" r="6" fill="white" />
+                        </svg>
+                    </div>
+                    <div class="page-4">
+                        <h3>04</h3>
+                        <svg class="slide" width="12" height="12" viewBox="0 0 12 12" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="6" cy="6" r="6" fill="white" />
+                        </svg>
+                    </div>
+                    <div class="page-5">
+                        <h3>05</h3>
+                        <svg class="slide" width="12" height="12" viewBox="0 0 12 12" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="6" cy="6" r="6" fill="white" />
+                        </svg>
+                    </div>
+                    <div class="page-6">
+                        <h3>06</h3>
+                        <svg class="slide" width="12" height="12" viewBox="0 0 12 12" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <circle cx="6" cy="6" r="6" fill="white" />
                         </svg>
@@ -104,12 +183,13 @@
             </main>
         </header>
     </div>
-</body>
+    <!-- Script for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.js"
+        integrity="sha512-AN4AFl65rG9R5oQapfUmU0yF0oVeCX7oHK8duXZ5CZqrVlipNtoNsPB9KFVK0rdfrbdoQNqicbWcjQqvURdIgg=="
+        crossorigin="anonymous"></script>
 
-<script>
-    function myFunction(x) {
-        x.classList.toggle("change");
-    }
-</script>
+
+    <script src="./js/app.js"></script>
+</body>
 
 </html>

@@ -30,7 +30,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 0px;
+  padding: 5px 0px;
 }
 
 .portofolio {
@@ -48,6 +48,36 @@ nav {
   grid-template-columns: 5% 1fr 1fr 1fr 5%;
 }
 
+.main,
+.classes,
+.events,
+.members,
+.about,
+.favorites,
+.social {
+  position: absolute;
+  bottom: 0%;
+  left: 0%;
+  width: 100%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.menu-main,
+.menu-classes,
+.menu-events,
+.menu-members,
+.menu-about,
+.menu-favorites,
+.menu-social {
+  position: relative;
+  bottom: 0%;
+  left: 0%;
+  width: 100%;
+  opacity: 0;
+  pointer-events: none;
+}
+
 .hero {
   overflow: hidden;
   height: 200px;
@@ -62,6 +92,9 @@ nav {
   cursor: pointer;
 }
 
+.hero a {
+  display: flex;
+}
 .model-right {
   transform: translate(0%, 10%);
 }
@@ -159,22 +192,8 @@ nav {
 }
 
 .author {
-  position: absolute;
-  top: 80%;
-  left: 50%;
-  transform: translate(0%, -140);
-  color: white;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
   text-align: center;
-}
-
-.author h1 {
-  font-size: 88px;
-}
-
-.author h3 {
-  padding: 10px 0px;
-  font-size: 44px;
 }
 
 .story,
@@ -247,59 +266,155 @@ nav {
   transform: rotate(45deg) translate(-8px, -8px);
 }
 
+/* Large Screen */
+@media (min-width: 1024px) {
+  .author {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    margin: 6%;
+    color: white;
+    text-align: center;
+  }
+
+  .author h1 {
+    font-size: 88px;
+  }
+
+  .author h3 {
+    padding: 10px 0px;
+    font-size: 44px;
+  }
+}
+
+/* Medium Screen */
 @media (max-width: 1024px) {
   .page {
     grid-template-columns: 5% 1fr 5%;
     grid-template-rows: 2fr 1fr;
     align-items: center;
   }
-  .hero{
-      grid-column: 2/3;
-      height: auto;
+  .hero {
+    grid-column: 2/3;
+    height: auto;
   }
-  .hero img{
-      height: 500px;
+  .hero img {
+    height: 500px;
   }
   .details {
-      grid-row: 2/3;
-      grid-column: 2/3;
-      text-align: center;
+    grid-row: 2/3;
+    grid-column: 2/3;
+    text-align: center;
   }
-  .details h1{
-      font-size: 48px;
+  .details h1 {
+    font-size: 48px;
   }
-  .details h2{
-      font-size: 38px;
+  .details h2 {
+    font-size: 38px;
   }
-  .story,.work{
-      flex-direction:column;
+
+  .author {
+    position: relative;
+    color: black;
   }
-  .story-description,.work-description{
-      width: 100%;
+
+  .author h1 {
+    font-size: 44px;
   }
-  .work-gallery{
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+  .author h3 {
+    font-size: 33px;
   }
-  .profile{
-      padding-top: 30px;
-      text-align: center;
+
+  .story,
+  .work {
+    flex-direction: column;
+  }
+  .story-description,
+  .work-description {
+    width: 100%;
+  }
+
+  .work-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+  .profile {
+    padding-top: 30px;
+    text-align: center;
   }
 }
- @media (max-width: 768px){
-     .page{
-         grid-template-rows: 1fr 1fr;
-     }
-     .hero img{
-         height: 300px;
-     }
-     .details h1{
-         font-size: 38px;
-     }
-     .details h2{
-         font-size: 28px;
-     }
-     .details h3{
-         font-size: 20px;
-     }
- }
+
+/* Small Screens */
+@media (max-width: 768px) {
+  .page {
+    grid-template-rows: 1fr 1fr;
+  }
+  .hero img {
+    height: 300px;
+  }
+  .details h1 {
+    font-size: 38px;
+  }
+  .details h2 {
+    font-size: 28px;
+  }
+  .details h3 {
+    font-size: 20px;
+  }
+
+  .author {
+    position: relative;
+    color: black;
+  }
+
+  .author h1 {
+    font-size: 28px;
+  }
+
+  .author h3 {
+    font-size: 20px;
+  }
+}
+
+.nav-open {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 20vh;
+  background: rgb(166, 101, 209);
+  z-index: 1;
+  color: white;
+  display: grid;
+  grid-template-columns: 5% 1fr 1fr 1fr 1fr 1fr 1fr 1fr 5%;
+  justify-items: center;
+  align-items: center;
+  text-align: center;
+  transform: translateY(-100%);
+}
+
+.nav-open h3 {
+  font-size: 28px;
+  padding-bottom: 20px;
+}
+
+.nav-open p {
+  font-size: 18px;
+}
+
+.social-links img {
+  padding: 0px 10px;
+}
+
+.logo,.menu {
+  z-index: 2;
+}
+
+.menu {
+  cursor: pointer;
+}
+
+.mainpage {
+  grid-column: 2/3;
+}
