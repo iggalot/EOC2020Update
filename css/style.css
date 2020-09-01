@@ -68,7 +68,7 @@ body {
   left: 0%;
   width: 100%;
   opacity: 0;
-  pointer-events: none;
+  /* pointer-events: none; */
 }
 
 .hero {
@@ -299,6 +299,15 @@ nav {
 
 .nav-open p {
   font-size: 18px;
+}
+
+.nav-open a {
+  text-decoration: none;
+  color: currentColor;
+}
+
+.nav-open a:hover, .menu-social:hover {
+  color: #4E2768;
 }
 
 .social-links img {
