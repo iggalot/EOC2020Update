@@ -1,5 +1,5 @@
 // Toggles the menu icon shape
-function myFunction(x) {
+function toggleMenubar(x) {
     x.classList.toggle("change");
 }
 
@@ -104,7 +104,7 @@ function init() {
         nextSlide(scrollSlide);
     }
 
-    const hamburger = document.querySelector('.menu');
+    const hamburger = document.querySelector('.menu-icon');
     const navOpen = document.querySelector('.nav-open');
     const social = document.querySelector('.menu-social');
     const classes = document.querySelector('.menu-classes');
@@ -112,23 +112,23 @@ function init() {
     const members = document.querySelector('.menu-members');
     const about = document.querySelector('.menu-about');
     const favorites = document.querySelector('.menu-favorites');
-    const logo = document.querySelector('.logo');
+    const logo = document.querySelector('.menu-logo');
 
     const tl = new TimelineMax({paused: true, reversed: true});
 
     tl.to(navOpen, 0.5, {y:0})
     .fromTo(logo, 0.2,  {opacity: 0, y:10}, {opacity: 1, y:0}, '-=1')
-    .fromTo(classes, 0.5,  {opacity: 0, y:10}, {opacity: 1, y:0}, '-=0.1')
-    .fromTo(events, 0.5,  {opacity: 0, y:10}, {opacity: 1, y:0}, '-=0.1')
-    .fromTo(members, 0.5,  {opacity: 0, y:10}, {opacity: 1, y:0}, '-=0.1')
-    .fromTo(about, 0.5,  {opacity: 0, y:10}, {opacity: 1, y:0}, '-=0.1')
-    .fromTo(favorites, 0.5,  {opacity: 0, y:10}, {opacity: 1, y:0}, '-=0.1')
-    .fromTo(social, 0.5,  {opacity: 0, y:10}, {opacity: 1, y:0}, '-=0.1');
+    .fromTo(classes, 0.2,  {opacity: 0, y:10}, {opacity: 1, y:0}, '-=0.1')
+    .fromTo(events, 0.2,  {opacity: 0, y:10}, {opacity: 1, y:0}, '-=0.1')
+    .fromTo(members, 0.2,  {opacity: 0, y:10}, {opacity: 1, y:0}, '-=0.1')
+    .fromTo(about, 0.2,  {opacity: 0, y:10}, {opacity: 1, y:0}, '-=0.1')
+    .fromTo(favorites, 0.2,  {opacity: 0, y:10}, {opacity: 1, y:0}, '-=0.1')
+    .fromTo(social, 0.2,  {opacity: 0, y:10}, {opacity: 1, y:0}, '-=0.1');
 
 
     hamburger.addEventListener('click', ()=> {
         tl.reversed() ? tl.play() : tl.reverse();
-        myFunction(hamburger);
+        toggleMenubar(hamburger);
     })
 }
 
