@@ -38,9 +38,7 @@ function init() {
         const nextPage = pages[pageNumber];
         const currentPage = pages[current];
         const nextLeft = nextPage.querySelector(".hero .model-left");
-        const nextRight = nextPage.querySelector(".hero .model-right");
         const currentLeft = currentPage.querySelector(".hero .model-left");
-        const currentRight = currentPage.querySelector(".hero .model-right");
         const nextText = nextPage.querySelector(".details");
         const portofolio = document.querySelector(".portofolio");
 
@@ -56,22 +54,18 @@ function init() {
                 })
             }
 
-        });
+         });
 
-        tl.fromTo(currentLeft, 0.3, { y: '-10%' }, { y: '-100%' })
-            .fromTo(currentRight, 0.3, { y: '10%' }, { y: '-100%' }, '-=0.2')
+         tl.fromTo(currentLeft, 0.3, { y: '-10%' }, { y: '-100%' })
             .to(portofolio, 0.3, { backgroundImage: backgrounds[pageNumber] })
             .fromTo(currentPage, 0.3, { opacity: 1, pointerEvents: 'all' }, { opacity: 0, pointerEvents: 'none' })
             .fromTo(nextPage, 0.3, { opacity: 0, pointerEvents: 'none' }, { opacity: 1, pointerEvents: 'all' }, "-=0.6")
             .fromTo(nextLeft, 0.3, {y: '-100%'}, {y:'-10%'}, '-=0.6')
-            .fromTo(nextRight, 0.3, {y: '-100%'}, {y:'10%'}, '-=0.8')
             .fromTo(nextText, 0.3, {opacity: 0, y: 0}, {opacity:1, y:0})
             .set(nextLeft, {clearProps: 'all'})
-            .set(nextRight, {clearProps: 'all'})
-
-        current = pageNumber;
-        console.log(pageNumber);
-    }
+    ;
+         current = pageNumber;
+     }
 
     //OPTIONAL
     document.addEventListener("wheel", throttle(scrollChange, 1500));
