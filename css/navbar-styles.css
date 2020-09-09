@@ -3,15 +3,17 @@
 nav {
   
     /* position: absolute; */
-    height: max-content;
-    min-height: 7vh;
+    /* height: max-content; */
+    /* min-height: 7vh; */
     /* margin: auto; */
+    height: 10vh;
     width: 100%;
-    background-color: red;
+    /* background-color: red; */
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-items: center;;
+    align-items: center;
+    align-content: center;;
 }
 
 nav a {
@@ -20,21 +22,7 @@ nav a {
 }
 
 
-.logo {
-  width: 150px;
-  height: 150px;
-}
 
-.eoc-logo {
-    width: 10%;
-    height: 10%;
-}
-
-.akc-seal-logo {
-  border-radius: 100px;
-  width: 10%;
-  height: 10%;
-}
 
 .nav-links
 /* .menu-logo,
