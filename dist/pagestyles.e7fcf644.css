@@ -1,0 +1,60 @@
+
+.banner {
+    height: 60vh;
+    width: 100%;
+    position: relative;
+  }
+  
+  .banner img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
+  
+  .author {
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    text-align: center;
+  }
+  
+  .story,
+  .work {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: auto;
+    padding: 80px 0px;
+  }
+  
+  .profile img {
+    width: 400px;
+  }
+  
+  .story-description,
+  .work-description {
+    width: 50%;
+  }
+  
+  .story-description h3,
+  .work-description h3 {
+    font-size: 36px;
+    padding-bottom: 30px;
+  }
+  
+  .story-description p,
+  .work-description p {
+    padding: 20px 0px;
+    font-size: 20px;
+  }
+  
+  .work-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 200px);
+    grid-template-rows: repeat(3, 200px);
+  }
+  
+  .work-gallery img {
+    width: 100%;
+  }
+
+/*# sourceMappingURL=/pagestyles.e7fcf644.css.map */

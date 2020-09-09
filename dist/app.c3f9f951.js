@@ -118,122 +118,93 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"js/app.js":[function(require,module,exports) {
-// Toggles the menu icon shape
-function toggleMenubar(x) {
-  x.classList.toggle("change");
+// Constants
+var current = 0;
+var scrollSlide = 0;
+var pages = getPages();
+var slides = getSlides();
+var backgrounds = ["radial-gradient(#4E2768, #0B1023)", // blue
+"radial-gradient(#4E3022, #161616)", // brown
+"radial-gradient(#2B3760, #0B1023)", // blue
+"radial-gradient(#4E3022, #161616)", // gray
+"radial-gradient(#4E4342, #161616)", // gray
+"radial-gradient(#4E4342, #161616)" // gray
+]; // Array of the "pages" defined in this html document.
+
+function getPages() {
+  return document.querySelectorAll(".page");
 }
 
-function init() {
-  var slides = document.querySelectorAll(".slide");
-  var pages = document.querySelectorAll(".page");
-  var backgrounds = ["radial-gradient(#4E2768, #0B1023)", // blue
-  "radial-gradient(#4E3022, #161616)", // brown
-  "radial-gradient(#2B3760, #0B1023)", // blue
-  "radial-gradient(#4E3022, #161616)", // gray
-  "radial-gradient(#4E4342, #161616)", // gray
-  "radial-gradient(#4E4342, #161616)" // gray
-  ]; // Tracker
+function getSlides() {
+  return document.querySelectorAll(".slide");
+}
 
-  var current = 0;
-  var scrollSlide = 0;
+function nextSlide(pageNumber) {
+  var nextPage = pages[pageNumber];
+  console.log(nextPage);
+  var currentPage = pages[current];
+  var nextLeft = nextPage.querySelector(".hero .model-left");
+  var currentLeft = currentPage.querySelector(".hero .model-left");
+  var nextText = nextPage.querySelector(".details");
+  var portofolio = document.querySelector(".portofolio");
+  var tl = new TimelineMax({
+    onStart: function onStart() {
+      slides.forEach(function (slide) {
+        slide.getElementsByClassName.pointerEvents = "none";
+      });
+    },
+    onComplete: function onComplete() {
+      slides.forEach(function (slide) {
+        slide.getElementsByClassName.pointerEvents = "all";
+      });
+    }
+  });
+  tl.fromTo(currentLeft, 0.3, {
+    y: '-10%'
+  }, {
+    y: '-100%'
+  }).to(portofolio, 0.3, {
+    backgroundImage: backgrounds[pageNumber]
+  }).fromTo(currentPage, 0.3, {
+    opacity: 1,
+    pointerEvents: 'all'
+  }, {
+    opacity: 0,
+    pointerEvents: 'none'
+  }).fromTo(nextPage, 0.3, {
+    opacity: 0,
+    pointerEvents: 'none'
+  }, {
+    opacity: 1,
+    pointerEvents: 'all'
+  }, "-=0.6").fromTo(nextLeft, 0.3, {
+    y: '-100%'
+  }, {
+    y: '-10%'
+  }, '-=0.6').fromTo(nextText, 0.3, {
+    opacity: 0,
+    y: 0
+  }, {
+    opacity: 1,
+    y: 0
+  }).set(nextLeft, {
+    clearProps: 'all'
+  });
+  current = pageNumber;
+} // Setup the basic page behavior
+
+
+function init() {
   slides.forEach(function (slide, index) {
     slide.addEventListener('click', function () {
       changeDots(this);
       nextSlide(index);
       scrollSlide = index;
     });
-  });
-
-  function changeDots(dot) {
-    slides.forEach(function (slide) {
-      slide.classList.remove("active");
-    });
-    dot.classList.add("active");
-  }
-
-  function nextSlide(pageNumber) {
-    var nextPage = pages[pageNumber];
-    var currentPage = pages[current];
-    var nextLeft = nextPage.querySelector(".hero .model-left");
-    var currentLeft = currentPage.querySelector(".hero .model-left");
-    var nextText = nextPage.querySelector(".details");
-    var portofolio = document.querySelector(".portofolio");
-    var tl = new TimelineMax({
-      onStart: function onStart() {
-        slides.forEach(function (slide) {
-          slide.getElementsByClassName.pointerEvents = "none";
-        });
-      },
-      onComplete: function onComplete() {
-        slides.forEach(function (slide) {
-          slide.getElementsByClassName.pointerEvents = "all";
-        });
-      }
-    });
-    tl.fromTo(currentLeft, 0.3, {
-      y: '-10%'
-    }, {
-      y: '-100%'
-    }).to(portofolio, 0.3, {
-      backgroundImage: backgrounds[pageNumber]
-    }).fromTo(currentPage, 0.3, {
-      opacity: 1,
-      pointerEvents: 'all'
-    }, {
-      opacity: 0,
-      pointerEvents: 'none'
-    }).fromTo(nextPage, 0.3, {
-      opacity: 0,
-      pointerEvents: 'none'
-    }, {
-      opacity: 1,
-      pointerEvents: 'all'
-    }, "-=0.6").fromTo(nextLeft, 0.3, {
-      y: '-100%'
-    }, {
-      y: '-10%'
-    }, '-=0.6').fromTo(nextText, 0.3, {
-      opacity: 0,
-      y: 0
-    }, {
-      opacity: 1,
-      y: 0
-    }).set(nextLeft, {
-      clearProps: 'all'
-    });
-    current = pageNumber;
-  } //OPTIONAL
-
+  }); //OPTIONAL for mousewheel and touch screen scrolling
 
   document.addEventListener("wheel", throttle(scrollChange, 1500));
-  document.addEventListener("touchmove", throttle(scrollChange, 1500));
-
-  function switchDots(dotNumber) {
-    var activeDot = document.querySelectorAll(".slide")[dotNumber];
-    slides.forEach(function (slide) {
-      slide.classList.remove("active");
-    });
-    activeDot.classList.add("active");
-  }
-
-  function scrollChange(e) {
-    if (e.deltaY > 0) {
-      scrollSlide += 1;
-    } else {
-      scrollSlide -= 1;
-    }
-
-    if (scrollSlide > 5) {
-      scrollSlide = 0;
-    }
-
-    if (scrollSlide < 0) {
-      scrollSlide = 5;
-    }
-
-    switchDots(scrollSlide);
-    nextSlide(scrollSlide);
-  }
+  document.addEventListener("touchmove", throttle(scrollChange, 1500)); // Menubar animation
 
   var hamburger = document.querySelector('.menu-icon');
   var navOpen = document.querySelector('.nav-open');
@@ -292,11 +263,19 @@ function init() {
   }, {
     opacity: 1,
     y: 0
-  }, '-=0.1');
+  }, '-=0.1'); // Add the event listener for the animation
+
   hamburger.addEventListener('click', function () {
     tl.reversed() ? tl.play() : tl.reverse();
     toggleMenubar(hamburger);
   });
+}
+
+function menuBarNavigation() {} // Toggles the menu icon shape
+
+
+function toggleMenubar(x) {
+  x.classList.toggle("change");
 } // Scroll wheel functionality
 
 
@@ -314,7 +293,44 @@ function throttle(func, limit) {
       }, limit);
     }
   };
+} // Actions for switching the dot indicators
+
+
+function switchDots(dotNumber) {
+  var activeDot = document.querySelectorAll(".slide")[dotNumber];
+  slides.forEach(function (slide) {
+    slide.classList.remove("active");
+  });
+  activeDot.classList.add("active");
 }
+
+function changeDots(dot) {
+  slides.forEach(function (slide) {
+    slide.classList.remove("active");
+  });
+  dot.classList.add("active");
+} // Scroll button function helpers.
+
+
+function scrollChange(e) {
+  if (e.deltaY > 0) {
+    scrollSlide += 1;
+  } else {
+    scrollSlide -= 1;
+  }
+
+  if (scrollSlide > 5) {
+    scrollSlide = 0;
+  }
+
+  if (scrollSlide < 0) {
+    scrollSlide = 5;
+  }
+
+  switchDots(scrollSlide);
+  nextSlide(scrollSlide);
+} // The main funciton call
+
 
 init();
 },{}],"../../Users/iggmyao/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {

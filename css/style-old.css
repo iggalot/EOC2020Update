@@ -8,15 +8,15 @@
 
 @font-face {
   font-family: PopLight;
-  src: url("/Poppins-Light.aa273572.ttf");
+  src: url("../fonts/Poppins-Light.ttf");
 }
 @font-face {
   font-family: PopMedium;
-  src: url("/Poppins-Medium.6e0da558.ttf");
+  src: url("../fonts/Poppins-Medium.ttf");
 }
 @font-face {
   font-family: PopRegular;
-  src: url("/Poppins-Regular.afe0ffc8.ttf");
+  src: url("../fonts//Poppins-Regular.ttf");
 }
 
 body {
@@ -394,6 +394,3 @@ nav {
     font-size: 20px;
   }
 }
-
-
-/*# sourceMappingURL=/style.78032849.css.map */

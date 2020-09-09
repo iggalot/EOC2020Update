@@ -1,0 +1,91 @@
+
+
+nav {
+  
+    /* position: absolute; */
+    height: max-content;
+    min-height: 7vh;
+    /* margin: auto; */
+    width: 100%;
+    background-color: red;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;;
+}
+
+nav a {
+    text-decoration: none;
+    color: #D8CFAA;
+}
+
+
+.logo {
+  width: 150px;
+  height: 150px;
+}
+
+.eoc-logo {
+    width: 10%;
+    height: 10%;
+}
+
+.akc-seal-logo {
+  border-radius: 100px;
+  width: 10%;
+  height: 10%;
+}
+
+.nav-links
+/* .menu-logo,
+.menu-main,
+.menu-classes,
+.menu-events,
+.menu-members,
+.menu-about,
+.menu-favorites
+.menu-social */
+{
+    font-size: 24px;
+    color: #D8CFAA;
+    align-self: center;
+    justify-self: center;
+    margin: 2vh;
+    /* padding: 15px; */
+}
+
+/* Menu Icon */
+.menu-icon {
+    /* display: inline-block; */
+    cursor: pointer;
+    transform: translate(0%,0%);
+    padding: 5vh;
+  }
+  
+  .menu-bar1,
+  .menu-bar2,
+  .menu-bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #D8CFAA;;
+    margin: 6px 0;
+    transition: 0.4s;
+  }
+  
+  .change .menu-bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+  }
+  
+  .change .menu-bar2 {
+    opacity: 0;
+  }
+  
+  .change .menu-bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+  }
+
+.nav-open{
+display: flex;
+}
