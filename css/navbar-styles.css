@@ -1,79 +1,62 @@
-
-
 nav {
-  
-    /* position: absolute; */
-    /* height: max-content; */
-    /* min-height: 7vh; */
-    /* margin: auto; */
-    height: 10vh;
-    width: 100%;
-    /* background-color: red; */
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    align-content: center;;
+  position: absolute;
+  height: 10vh;
+  width: 100%;
+  /* background-color: red; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  align-content: center;
 }
 
 nav a {
-    text-decoration: none;
-    color: #D8CFAA;
+  text-decoration: none;
+  color: #d8cfaa;
 }
 
-
-
-
-.nav-links
-/* .menu-logo,
-.menu-main,
-.menu-classes,
-.menu-events,
-.menu-members,
-.menu-about,
-.menu-favorites
-.menu-social */
-{
-    font-size: 24px;
-    color: #D8CFAA;
-    align-self: center;
-    justify-self: center;
-    margin: 2vh;
-    /* padding: 15px; */
+.nav-links {
+  font-size: 24px;
+  color: #d8cfaa;
+  align-self: center;
+  justify-self: center;
+  margin: 2vh;
 }
 
 /* Menu Icon */
 .menu-icon {
-    /* display: inline-block; */
-    cursor: pointer;
-    transform: translate(0%,0%);
-    padding: 5vh;
-  }
-  
-  .menu-bar1,
-  .menu-bar2,
-  .menu-bar3 {
-    width: 35px;
-    height: 5px;
-    background-color: #D8CFAA;;
-    margin: 6px 0;
-    transition: 0.4s;
-  }
-  
-  .change .menu-bar1 {
-    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
-    transform: rotate(-45deg) translate(-9px, 6px);
-  }
-  
-  .change .menu-bar2 {
-    opacity: 0;
-  }
-  
-  .change .menu-bar3 {
-    -webkit-transform: rotate(45deg) translate(-8px, -8px);
-    transform: rotate(45deg) translate(-8px, -8px);
-  }
+  position: fixed;
+  right: 2%;
+  cursor: pointer;
+  transform: translate(0%, 0%);
+  padding: 5vh;
+}
 
-.nav-open{
-display: flex;
+.menu-bar1,
+.menu-bar2,
+.menu-bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: #d8cfaa;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.change .menu-bar1 {
+  -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+  transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.change .menu-bar2 {
+  opacity: 0;
+}
+
+.change .menu-bar3 {
+  -webkit-transform: rotate(45deg) translate(-8px, -8px);
+  transform: rotate(45deg) translate(-8px, -8px);
+}
+
+.nav-open {
+  display: flex;
+  width: 100%;
 }

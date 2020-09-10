@@ -5,7 +5,7 @@
   padding: 0;
   box-sizing: border-box;
 
-  color: #D8CFAA;
+  color: #d8cfaa;
 }
 
 @font-face {
@@ -18,24 +18,33 @@
 }
 @font-face {
   font-family: PopRegular;
-  src: url("../fonts//Poppins-Regular.ttf");
+  src: url("../fonts/Poppins-Regular.ttf");
 }
 
-.portofolio{
+@font-face {
+  font-family: Sriracha;
+  src: url("../fonts/Sriracha-Regular.ttf");
+}
+
+@font-face {
+  font-family: Niconne;
+  src: url("../fonts/Niconne-Regular.ttf");
+}
+
+.portofolio {
   height: 100vh;
   width: 100vw;
   position: absolute;
-  background: radial-gradient(#4e2768, #0b1023); 
+  background: radial-gradient(#4e2768, #0b1023);
   /* background-color: orange;*/
 }
 
 body {
   font-family: PopLight;
-  background: radial-gradient(#4e2768, #0b1023); 
+  background: radial-gradient(#4e2768, #0b1023);
   position: relative;
-  color: #D8CFAA; 
+  color: #d8cfaa;
   z-index: 0;
-
 }
 
 .body-ellipse {
@@ -60,76 +69,74 @@ body {
 
 .akc-seal-logo {
   border-radius: 50%;
-} 
-
-
-
-main{
-  padding: 20px;
-  height: 100%;
-  /* background-color: yellow; */
-  /* justify-content: center; */
 }
 
-.main-grid-container{
-  display: flex; 
-  height : 80vh;
-  justify-self: center;
+.main-grid-container {
+  position: absolute;
+  top: 10vh;
+  display: flex;
+  flex-wrap: wrap;
+  height: 88vh;
+  width: 100%;
+  left: auto;
+  right: auto;
+}
+
+.main-panel-container {
+  position: relative;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  transform: translate(20%, 0%);
 }
 
 .hero-container {
-  padding: 5%;
-  justify-self: center;
-  transform: scale(1.3);
-  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 90%;
+  width: 30%;
+  left: 5%;
 }
 
-.hero img{
-  height: 100%;
+.hero img {
+  position: relative;
   width: 100%;
   border-radius: 20%;
 }
 
-.logo-icon-container{
+.logo-icon-container {
   height: 100%;
   /* background: green; */
-  /* position: absolute; */
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
 }
 
-.logo-icon-container img{
+.logo-icon-container img {
   justify-self: center;
 }
 
-.main-panel-container{
-  /* background-color: magenta; */
-  width: 50%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-}
-
-.title-block-container{
-  margin: 40px 0px;
+.title-block-container {
   text-align: center;
 }
 
-.title-block{
+.title-block {
   /* background-color: lightcyan; */
   margin: 5%;
 }
 
-.title-block h1{
-  font-size: 60px;
+.title-block h1 {
+  font-size: 96px;
   font-weight: bold;
+  font-family: Niconne;
+  text-shadow: 7px 7px #8a729b;
 }
 
-.title-block h3{
-  font-size: 36px;
+.title-block h3 {
+  font-size: 30px;
   font-style: italic;
 }
 
@@ -138,7 +145,7 @@ main{
   font-style: italic;
 }
 
-.main-button-container{
+.main-button-container {
   /* background-color: cyan; */
   justify-self: center;
   justify-content: space-between;
@@ -150,51 +157,66 @@ main{
 
 .main-btns {
   height: 100%;
-  background-color: purple;
+  background-color: rgb(90, 4, 90);
   font-family: PopMedium;
   font-size: 20px;
   align-self: center;
   text-align: center;
-  min-width: 20%;
-  box-shadow: 0 10px 20px 0 rgba(1,0,0,1);
+  width: 20%;
+  box-shadow: 0 10px 20px 0 rgba(1, 0, 0, 1);
   transition: 0.5s;
   border-radius: 15px;
   z-index: 4;
   cursor: pointer;
+  height: 100%;
+  /* background: green; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-content: center;
+}
+
+.card-icons {
+  position: relative;
+  width: 100%;
+  transform: scale(0.65);
+  /* margin: 20%; */
+}
+
+.main-btns p {
+  font-size: 24px;
 }
 
 .main-btns:hover {
-  background-color: rgb(90, 4, 90);
-  /* box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2); */
+  background-color: purple;
+  box-shadow: 0 30px 60px 0 rgba(1,0,0,0.2);
+  transform: scale(1.05);
 }
 
-.main-btn-submit{
+.main-btn-submit {
   align-self: center;
   font-size: 38px;
   font-family: PopMedium;
   font-style: italic;
   padding: 2vh;
-  bottom: 0%;
+  bottom: 10%;
   z-index: 4;
   border: black;
   border-radius: 15px;
-  background-color: purple ;
+  background-color: rgb(90, 4, 90);
   width: 100%;
   text-align: center;
-  box-shadow: 0 10px 20px 0 rgba(1,0,0,1);
+  box-shadow: 0 10px 20px 0 rgba(1, 0, 0, 1);
   transition: 0.5s;
 }
 
 .main-btn-submit:hover {
   /* color: green; */
-  background-color: rgb(90, 4, 90);
+  background-color: purple;
+  transform: scale(1.05);
 }
 
 .main-btn-submit a {
-
   text-decoration: none;
-  color: #D8CFAA;
+  color: #d8cfaa;
 }
-
-
-  
