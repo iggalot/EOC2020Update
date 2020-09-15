@@ -117,79 +117,81 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"../../Users/iggmyao/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
-var bundleURL = null;
+})({"js/navbar.js":[function(require,module,exports) {
+function menuBarNavigation() {
+  // Menubar animation
+  var hamburger = document.querySelector('.menu-icon');
+  var navOpen = document.querySelector('.nav-open');
+  var social = document.querySelector('.menu-social');
+  var classes = document.querySelector('.menu-classes');
+  var events = document.querySelector('.menu-events');
+  var members = document.querySelector('.menu-members');
+  var about = document.querySelector('.menu-about');
+  var favorites = document.querySelector('.menu-favorites');
+  var logo = document.querySelector('.menu-logo');
+  var tl = new TimelineMax({
+    paused: true,
+    reversed: true
+  });
+  tl.to(navOpen, 0.5, {
+    y: 0
+  }).fromTo(logo, 0.2, {
+    opacity: 0,
+    y: 10
+  }, {
+    opacity: 1,
+    y: 0
+  }, '-=1').fromTo(classes, 0.2, {
+    opacity: 0,
+    y: 10
+  }, {
+    opacity: 1,
+    y: 0
+  }, '-=0.1').fromTo(events, 0.2, {
+    opacity: 0,
+    y: 10
+  }, {
+    opacity: 1,
+    y: 0
+  }, '-=0.1').fromTo(members, 0.2, {
+    opacity: 0,
+    y: 10
+  }, {
+    opacity: 1,
+    y: 0
+  }, '-=0.1').fromTo(about, 0.2, {
+    opacity: 0,
+    y: 10
+  }, {
+    opacity: 1,
+    y: 0
+  }, '-=0.1').fromTo(favorites, 0.2, {
+    opacity: 0,
+    y: 10
+  }, {
+    opacity: 1,
+    y: 0
+  }, '-=0.1').fromTo(social, 0.2, {
+    opacity: 0,
+    y: 10
+  }, {
+    opacity: 1,
+    y: 0
+  }, '-=0.1'); // Add the event listener for the animation
 
-function getBundleURLCached() {
-  if (!bundleURL) {
-    bundleURL = getBundleURL();
-  }
+  hamburger.addEventListener('click', function () {
+    tl.reversed() ? tl.play() : tl.reverse();
+    toggleMenubar(hamburger);
+  });
+} // Toggles the menu icon shape
 
-  return bundleURL;
+
+function toggleMenubar(x) {
+  x.classList.toggle("change");
 }
 
-function getBundleURL() {
-  // Attempt to find the URL of the current script and use that as the base URL
-  try {
-    throw new Error();
-  } catch (err) {
-    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
-
-    if (matches) {
-      return getBaseURL(matches[0]);
-    }
-  }
-
-  return '/';
-}
-
-function getBaseURL(url) {
-  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
-}
-
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-},{}],"../../Users/iggmyao/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
-var bundle = require('./bundle-url');
-
-function updateLink(link) {
-  var newLink = link.cloneNode();
-
-  newLink.onload = function () {
-    link.remove();
-  };
-
-  newLink.href = link.href.split('?')[0] + '?' + Date.now();
-  link.parentNode.insertBefore(newLink, link.nextSibling);
-}
-
-var cssTimeout = null;
-
-function reloadCSS() {
-  if (cssTimeout) {
-    return;
-  }
-
-  cssTimeout = setTimeout(function () {
-    var links = document.querySelectorAll('link[rel="stylesheet"]');
-
-    for (var i = 0; i < links.length; i++) {
-      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
-        updateLink(links[i]);
-      }
-    }
-
-    cssTimeout = null;
-  }, 50);
-}
-
-module.exports = reloadCSS;
-},{"./bundle-url":"../../Users/iggmyao/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"css/style.css":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
-
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"./..\\fonts\\Poppins-Light.ttf":[["Poppins-Light.aa273572.ttf","fonts/Poppins-Light.ttf"],"fonts/Poppins-Light.ttf"],"./..\\fonts\\Poppins-Medium.ttf":[["Poppins-Medium.6e0da558.ttf","fonts/Poppins-Medium.ttf"],"fonts/Poppins-Medium.ttf"],"./..\\fonts\\Poppins-Regular.ttf":[["Poppins-Regular.afe0ffc8.ttf","fonts/Poppins-Regular.ttf"],"fonts/Poppins-Regular.ttf"],"./..\\fonts\\Sriracha-Regular.ttf":[["Sriracha-Regular.8f0a7cad.ttf","fonts/Sriracha-Regular.ttf"],"fonts/Sriracha-Regular.ttf"],"./..\\fonts\\Niconne-Regular.ttf":[["Niconne-Regular.85854fbc.ttf","fonts/Niconne-Regular.ttf"],"fonts/Niconne-Regular.ttf"],"_css_loader":"../../Users/iggmyao/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../../Users/iggmyao/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+menuBarNavigation();
+},{}],"../../Users/iggmyao/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -393,5 +395,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../Users/iggmyao/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js"], null)
-//# sourceMappingURL=/style.78032849.js.map
+},{}]},{},["../../Users/iggmyao/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/navbar.js"], null)
+//# sourceMappingURL=/navbar.dbffeb5e.js.map

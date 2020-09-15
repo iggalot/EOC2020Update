@@ -76,11 +76,6 @@
 
         <main>
             <div class="main-grid-container">
-                <!-- <div class="logo-icon-container">
-                    <img class="logo eoc-logo" src="./img/logos/eoc-Logo-160.png" alt="">
-                    <img class="logo akc-seal-logo" src="./img/logos/AKC_Seal_1884_blue_wR.jpg" alt="">
-                </div> -->
-
                 <div class="hero-container">
                     <div class="hero">
                         <img src="./img/Powell-Matilda.jpg" alt="">
@@ -91,8 +86,11 @@
                     <div class="title-block-container">
                         <div class="title-block">
                             <h1>Evansville Obedience Club</h1>
-                            <h3>An AKC licensed club</h3>
-                            <p>Serving the TriState since 1974</p>
+                            <span>
+                                <img class="logo eoc-logo" src="./img/logos/eoc-Logo-160.png" alt="">
+                                <img class="akc-seal-logo" src="./img/logos/AKC_Seal_1884_blue_wR.jpg" alt="">
+                            </span>
+
                         </div>
                     </div>
 
@@ -114,18 +112,30 @@
                             <p>More Info</p>
                         </div>
                     </div>
-                    <div class="btn main-btn-submit">
-                        <a href="#">Learn more here!</a>
+                </div>
+
+                <div class="marquee-container">
+                    <div id="marqueecontainer" onMouseover="copyspeed=pausespeed" onMouseout="copyspeed=marqueespeed">
+                        <div id="vmarquee" style="position: absolute; width: 90%; margin: 5%;">
+                        
+                            <!--YOUR SCROLL CONTENT HERE-->
+                            <marquee-text>
+                                <h1></h1>
+                                <h2>Registration Deadline for Session 5 is 9/20/2020</h2>
+                                <br>
+                                <h2>November Obedience trial registration is now open.</h2>
+                                <br>
+                                <h2>Nominations for Board positions are now being open.</h2>
+                                <br>
+                                <h2>Congratulations to Kira the Saluki on her new CGC!</h2>
+                                <h1></h1>
+                            </marquee-text>             
+                            <!--YOUR SCROLL CONTENT HERE-->
+                        
+                        </div>
                     </div>
                 </div>
-                <div class="marquee-container">
-                    <span>
-                        <div class="marquee-text">
-                            <h1>Marquee text here</h1>
-                        </div>
 
-                    </span>
-                </div>
             </div>
         </main>
     </div>

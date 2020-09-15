@@ -117,79 +117,44 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"../../Users/iggmyao/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
-var bundleURL = null;
+})({"js/index.js":[function(require,module,exports) {
+// A marquee vertical scroller
+var delayb4scroll = 2000; //Specify initial delay before marquee starts to scroll on page (2000=2 seconds)
 
-function getBundleURLCached() {
-  if (!bundleURL) {
-    bundleURL = getBundleURL();
-  }
+var marqueespeed = 1; //Specify marquee scroll speed (larger is faster 1-10)
 
-  return bundleURL;
+var pauseit = 1; //Pause marquee onMousever (0=no. 1=yes)?
+////NO NEED TO EDIT BELOW THIS LINE////////////
+
+var copyspeed = marqueespeed;
+var pausespeed = pauseit == 0 ? copyspeed : 0;
+var actualheight = '';
+
+function scrollmarquee() {
+  if (parseInt(cross_marquee.style.top) > actualheight * -1 - 50) //if scroller hasn't reached the end of its height
+    cross_marquee.style.top = parseInt(cross_marquee.style.top) - copyspeed + "px"; //move scroller upwards
+  else //else, reset to original position
+    cross_marquee.style.top = parseInt(marqueeheight) - 8 + "px";
 }
 
-function getBundleURL() {
-  // Attempt to find the URL of the current script and use that as the base URL
-  try {
-    throw new Error();
-  } catch (err) {
-    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
+function initializemarquee() {
+  cross_marquee = document.getElementById("vmarquee");
+  cross_marquee.style.top = 0;
+  marqueeheight = document.getElementById("marqueecontainer").offsetHeight;
+  actualheight = cross_marquee.offsetHeight; //height of marquee content (much of which is hidden from view)
 
-    if (matches) {
-      return getBaseURL(matches[0]);
-    }
-  }
-
-  return '/';
-}
-
-function getBaseURL(url) {
-  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
-}
-
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-},{}],"../../Users/iggmyao/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
-var bundle = require('./bundle-url');
-
-function updateLink(link) {
-  var newLink = link.cloneNode();
-
-  newLink.onload = function () {
-    link.remove();
-  };
-
-  newLink.href = link.href.split('?')[0] + '?' + Date.now();
-  link.parentNode.insertBefore(newLink, link.nextSibling);
-}
-
-var cssTimeout = null;
-
-function reloadCSS() {
-  if (cssTimeout) {
+  if (window.opera || navigator.userAgent.indexOf("Netscape/7") != -1) {
+    //if Opera or Netscape 7x, add scrollbars to scroll and exit
+    cross_marquee.style.height = marqueeheight + "px";
+    cross_marquee.style.overflow = "scroll";
     return;
   }
 
-  cssTimeout = setTimeout(function () {
-    var links = document.querySelectorAll('link[rel="stylesheet"]');
-
-    for (var i = 0; i < links.length; i++) {
-      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
-        updateLink(links[i]);
-      }
-    }
-
-    cssTimeout = null;
-  }, 50);
+  setTimeout('lefttime=setInterval("scrollmarquee()",30)', delayb4scroll);
 }
 
-module.exports = reloadCSS;
-},{"./bundle-url":"../../Users/iggmyao/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"css/style.css":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
-
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"./..\\fonts\\Poppins-Light.ttf":[["Poppins-Light.aa273572.ttf","fonts/Poppins-Light.ttf"],"fonts/Poppins-Light.ttf"],"./..\\fonts\\Poppins-Medium.ttf":[["Poppins-Medium.6e0da558.ttf","fonts/Poppins-Medium.ttf"],"fonts/Poppins-Medium.ttf"],"./..\\fonts\\Poppins-Regular.ttf":[["Poppins-Regular.afe0ffc8.ttf","fonts/Poppins-Regular.ttf"],"fonts/Poppins-Regular.ttf"],"./..\\fonts\\Sriracha-Regular.ttf":[["Sriracha-Regular.8f0a7cad.ttf","fonts/Sriracha-Regular.ttf"],"fonts/Sriracha-Regular.ttf"],"./..\\fonts\\Niconne-Regular.ttf":[["Niconne-Regular.85854fbc.ttf","fonts/Niconne-Regular.ttf"],"fonts/Niconne-Regular.ttf"],"_css_loader":"../../Users/iggmyao/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../../Users/iggmyao/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+if (window.addEventListener) window.addEventListener("load", initializemarquee, false);else if (window.attachEvent) window.attachEvent("onload", initializemarquee);else if (document.getElementById) window.onload = initializemarquee;
+},{}],"../../Users/iggmyao/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -393,5 +358,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../Users/iggmyao/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js"], null)
-//# sourceMappingURL=/style.78032849.js.map
+},{}]},{},["../../Users/iggmyao/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/index.js"], null)
+//# sourceMappingURL=/js.00a46daa.js.map
